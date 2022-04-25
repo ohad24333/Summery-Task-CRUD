@@ -3,14 +3,35 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReviewsComponent } from './components/reviews/reviews.component';
+import { AddReviewComponent } from './components/add-review/add-review.component';
+import { DeleteReviewComponent } from './components/delete-review/delete-review.component';
+import { EditReviewComponent } from './components/edit-review/edit-review.component';
+import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule} from '@angular/common/http';
+
+const routes:Routes = [
+  {path:'' , component : ReviewsComponent },
+  {path:'edit/:id' , component : EditReviewComponent },
+  {path:'delete/:id' , component : DeleteReviewComponent },
+  {path:'add/:id' , component : AddReviewComponent },
+]
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ReviewsComponent,
+    AddReviewComponent,
+    DeleteReviewComponent,
+    EditReviewComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
