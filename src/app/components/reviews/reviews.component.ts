@@ -16,7 +16,7 @@ export class ReviewsComponent implements OnInit {
         reviewsService.getAllReviews()
                         .subscribe({
                           next : (resulte :any) => this.reviews = resulte,
-                          error : (err : any ) => console.error('Server Call Failed..', err)
+                          error : (err : any ) => console.error('Server failed to get all reviews..', err)
                         })
    }
 

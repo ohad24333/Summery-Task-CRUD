@@ -17,4 +17,8 @@ export class ReviewsService {
   getReview(id:number){
     return this.http.get(`${this.server}/${id}`);
   }
+
+  deleteReview(id:number){
+   return this.http.delete(`${this.server}/${id}`);
+  }
 }

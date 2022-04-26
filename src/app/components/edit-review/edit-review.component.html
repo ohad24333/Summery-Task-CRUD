@@ -1,1 +1,92 @@
-<p>edit-review works!</p>
+<div class="row">
+    <div class="col-12">
+        <h1>Edir Review</h1>
+        <form #form="ngForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label for="id" class="form-lable">Id</label>
+                <input type="text"
+                        class="form-control"
+                        ngModel
+                        [(ngModel)]="review.id"
+                        name="id"
+                        disabled
+                        >
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-lable">Name</label>
+                <input type="text"
+                        class="form-control"
+                        #name="ngModel"
+                        ngModel
+                        [(ngModel)]="review.name"
+                        name="name"
+                        required
+                        minlength="3"
+                        pattern ='[a-zA-Z ]*'
+                        >
+                <div *ngIf="name.invalid" class="text-danger">
+                    Name Can Contain Only Latters And Must Have At Least 3 Charachters.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="editor" class="form-label">Editor</label>
+                <input type="text"
+                        class="form-control"
+                        #editor="ngModel"
+                        ngModel
+                        [(ngModel)]="review.editor"
+                        name="editor"
+                        required
+                        minlength="3"
+                        pattern ='[a-zA-Z ]*'
+                        >
+                <div *ngIf="editor.invalid" class="text-danger">
+                    Editor Can Contain Only Latters And Must Have At Least 3 Charachters.
+                </div>        
+            </div>
+            <div class="mb-3">
+                <label for="movie" class="form-label">Movie</label>
+                <input type="text"
+                        class="form-control"
+                        #movie="ngModel"
+                        ngModel
+                        [(ngModel)]="review.movie"
+                        name="movie"
+                        required
+                        minlength="3"
+                        >
+                        <div *ngIf="movie.invalid" class="text-danger">
+                            Movie Name Must Have At Least 3 Charachters.
+                        </div>   
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">Content</label>
+                <input type="text"
+                        class="form-control"
+                        #content="ngModel"
+                        ngModel
+                        [(ngModel)]="review.content"
+                        name = "content"
+                        required
+                        minlength="8"
+                        >
+                        
+                <div *ngIf="content.invalid" class="text-danger">
+                    Content Must Have At Least 8 Charachters.
+                </div>   
+            </div>
+            <div class="mb-3">
+                <label for="grade" class="form-label">Grade</label>
+                <input type="number"
+                        class="form-control"
+                        ngModel
+                        [(ngModel)]="review.grade"
+                        name="content"
+                        required
+                        max="10"
+                        min="1" >
+            </div>
+            
+        </form>
+    </div>
+</div>

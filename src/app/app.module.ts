@@ -10,6 +10,7 @@ import { DeleteReviewComponent } from './components/delete-review/delete-review.
 import { EditReviewComponent } from './components/edit-review/edit-review.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 const routes:Routes = [
   {path:'' , component : ReviewsComponent },
@@ -31,7 +32,8 @@ const routes:Routes = [
     AppRoutingModule,
     NgbModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
