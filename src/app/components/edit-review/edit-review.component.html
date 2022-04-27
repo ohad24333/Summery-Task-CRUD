@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-12">
-        <h1>Edir Review</h1>
+        <h1>Edit Review</h1>
         <form #form="ngForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">
                 <label for="id" class="form-lable">Id</label>
@@ -79,14 +79,17 @@
                 <label for="grade" class="form-label">Grade</label>
                 <input type="number"
                         class="form-control"
+                        #grade="ngModel"
                         ngModel
                         [(ngModel)]="review.grade"
-                        name="content"
+                        name="grade"
                         required
                         max="10"
                         min="1" >
             </div>
-            
+            <button  *ngIf="name.valid && editor.valid && movie.valid && content.valid
+                            && (name.touched || editor.touched || movie.touched || content.touched || grade.touched )"
+                      type="submit" class="btn btn-primary btn-lg">Save</button>
         </form>
     </div>
 </div>

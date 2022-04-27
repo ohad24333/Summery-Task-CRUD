@@ -28,6 +28,10 @@ export class EditReviewComponent implements OnInit {
   }
 
   onSubmit(){
-
+    this.reviewsService.updateReview(this.id,this.review)
+                        .subscribe({
+                          next: (resulte:any) => this.router.navigate(['']),
+                          error: (err:any) => console.log("Server failed to update.." , err)
+                        });
   }
 }

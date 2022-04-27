@@ -1,1 +1,109 @@
-<p>add-review works!</p>
+<div class="row">
+    <div class="col-12">
+        <h1>Add A New Review</h1>
+        <form #form="ngForm" (ngSubmit)="onSubmit()">     
+            <div class="mb-3">
+                <label for="name" class="form-lable">Name</label>
+                <input type="text"
+                        class="form-control"
+                        #name="ngModel"
+                        ngModel
+                        [(ngModel)]="review.name"
+                        name="name"
+                        required
+                        minlength="3"
+                        pattern ='[a-zA-Z ]*'
+                        >
+                <div *ngIf="name.invalid" class="text-danger">
+                    Name Can Contain Only Latters And Must Have At Least 3 Charachters.
+                </div>
+                <div *ngIf="name.valid" class="text-success">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+                        <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
+                        <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="editor" class="form-label">Editor</label>
+                <input type="text"
+                        class="form-control"
+                        #editor="ngModel"
+                        ngModel
+                        [(ngModel)]="review.editor"
+                        name="editor"
+                        required
+                        minlength="3"
+                        pattern ='[a-zA-Z ]*'
+                        >
+                <div *ngIf="editor.invalid" class="text-danger">
+                    Editor Can Contain Only Latters And Must Have At Least 3 Charachters.
+                </div>    
+                <div *ngIf="editor.valid" class="text-success">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+                        <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
+                        <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
+                    </svg>
+                </div>    
+            </div>
+            <div class="mb-3">
+                <label for="movie" class="form-label">Movie</label>
+                <input type="text"
+                        class="form-control"
+                        #movie="ngModel"
+                        ngModel
+                        [(ngModel)]="review.movie"
+                        name="movie"
+                        required
+                        minlength="3"
+                        >
+                        <div *ngIf="movie.invalid" class="text-danger">
+                            Movie Name Must Have At Least 3 Charachters.
+                        </div>   
+            </div>
+            <div *ngIf="movie.valid" class="text-success">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+                    <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
+                    <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
+                </svg>
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">Content</label>
+                <input type="text"
+                        class="form-control"
+                        #content="ngModel"
+                        ngModel
+                        [(ngModel)]="review.content"
+                        name = "content"
+                        required
+                        minlength="8"
+                        >
+                        
+                <div *ngIf="content.invalid" class="text-danger">
+                    Content Must Have At Least 8 Charachters.
+                </div>  
+                <div *ngIf="content.valid" class="text-success">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+                        <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
+                        <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
+                    </svg>
+                </div> 
+            </div>
+            <div class="mb-3">
+                <label for="grade" class="form-label">Grade</label>
+                <input type="number"
+                        class="form-control"
+                        #grade="ngModel"
+                        ngModel
+                        [(ngModel)]="review.grade"
+                        name="grade"
+                        required
+                        max="10"
+                        min="1" >
+            </div>
+            <button  *ngIf="name.valid && editor.valid && movie.valid && content.valid
+                            && (name.touched || editor.touched || movie.touched || content.touched || grade.touched )"
+                             type="submit" class="btn btn-primary btn-lg">Save</button>
+        </form>
+    </div>
+</div>

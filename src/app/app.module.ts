@@ -16,7 +16,7 @@ const routes:Routes = [
   {path:'' , component : ReviewsComponent },
   {path:'edit/:id' , component : EditReviewComponent },
   {path:'delete/:id' , component : DeleteReviewComponent },
-  {path:'add/:id' , component : AddReviewComponent },
+  {path:'add' , component : AddReviewComponent },
 ]
 
 @NgModule({
